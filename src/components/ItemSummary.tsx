@@ -11,7 +11,7 @@ const ItemSummary = () => {
         <h2 className="text-xl font-medium text-indigo-950">Item summary</h2>
 
         <div className="flex flex-col gap-6">
-          <div className="flex flex-col items-center p-6 bg-violet-100 rounded-xl">
+          <div className="flex flex-col items-center p-6 bg-amber-100 rounded-xl">
             <div className="flex flex-col gap-2 items-center">
               <div className="px-4 py-1 text-xs font-medium text-violet-600 bg-violet-100 rounded-[45px]">
                 Selling price

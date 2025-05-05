@@ -6,6 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        amber: {
+          100: "rgba(255, 244, 230, 1)",
+        },
         violet: {
           100: "#F4F1FE",
           500: "#815AF0",
