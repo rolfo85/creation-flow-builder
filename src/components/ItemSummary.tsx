@@ -6,7 +6,7 @@ const ItemSummary = () => {
   const [isAvailable, setIsAvailable] = useState(true);
 
   return (
-    <aside className="flex flex-col self-center px-16 py-10 mb-auto h-auto bg-white border-l border-solid border-l-gray-300 w-[566px] max-md:w-full max-sm:p-5 max-sm:w-full">
+    <aside className="flex flex-col self-stretch h-auto flex-grow-0 px-16 py-10 bg-white border-l border-solid border-l-gray-300 w-[500px] max-md:w-full max-sm:p-5 max-sm:w-full">
       <div className="flex flex-col gap-6">
         <h2 className="text-xl font-medium text-indigo-950">Item summary</h2>
 
@@ -40,25 +40,32 @@ const ItemSummary = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <div>
+            <div className="flex flex-row w-full mx-auto">
               <div className="text-sm font-medium text-gray-700 w-[150px]">
                 Category
               </div>
-              <div className="text-sm text-indigo-950">Dog food</div>
+              <div className="text-sm text-indigo-950 ml-auto text-right">
+                Dog food
+              </div>
             </div>
-            <div>
+            <div className="h-px bg-gray-200 w-full"></div>
+            <div className="flex flex-row">
               <div className="text-sm font-medium text-gray-700 w-[150px]">
                 Brand name
               </div>
-              <div className="text-sm text-indigo-950">Premium paws</div>
+              <div className="text-sm text-indigo-950 ml-auto text-right">
+                Premium paws
+              </div>
             </div>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-row gap-4">
             <div className="text-sm font-medium text-gray-700 w-[150px]">
               Taxes
             </div>
-            <div className="text-sm text-indigo-950">Fully taxable</div>
+            <div className="text-sm text-indigo-950 ml-auto text-right">
+              Fully taxable
+            </div>
           </div>
         </div>
 

@@ -27,7 +27,7 @@ const ItemDetails = () => {
   };
 
   return (
-    <section className="flex flex-col flex-1 gap-10 p-10 left-[container] max-sm:p-5">
+    <section className="flex flex-col flex-1 gap-10 p-10 w-auto max-w-[650px] max-sm:p-5">
       <div className="flex flex-col gap-4 h-auto grow-0">
         <h2 className="text-xl font-medium text-indigo-950">Item details</h2>
         <div className="flex gap-4">
