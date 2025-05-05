@@ -14,14 +14,20 @@ const ItemSummary: React.FC<ItemSummaryProps> = ({ productName, category, brand 
   return (
     <aside className="flex flex-col self-stretch h-auto flex-grow-0 p-10 bg-white border-l border-solid border-l-gray-300 w-[500px] max-md:w-full max-sm:p-5 max-sm:w-full">
       <div className="flex flex-col gap-6">
-        <h2 className="text-xl font-medium text-indigo-950">Item summary</h2>
+        <h2 className="text-xl font-medium text-indigo-950 text-center">Item summary</h2>
 
         <div className="flex flex-col gap-6">
 
-          <div className="flex flex-col items-center p-6 gap-6 bg-violet-150 rounded-xl">
+          <div className="flex flex-col items-center p-6 gap-6 rounded-xl" style={{ backgroundColor: "rgba(184, 233, 134, 1)" }}>
 
             <div className="flex flex-col gap-2 items-center">
-              <div className="px-4 py-1 text-xs font-medium text-violet-600 bg-violet-100 rounded-[45px]">
+              <div
+                className="px-4 py-1 text-xs font-medium rounded-[45px]"
+                style={{
+                  backgroundColor: "rgba(134, 206, 80, 0.25)",
+                  color: "rgba(63, 128, 19, 1)"
+                }}
+              >
                 Selling price
               </div>
               <div className="text-3xl font-medium text-indigo-950">$0.00</div>
