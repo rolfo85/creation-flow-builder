@@ -50,6 +50,7 @@ const ItemSummary = () => {
                 Dog food
               </div>
             </div>
+            <div className="h-px bg-gray-200 w-full"></div>
             <div className="flex flex-row">
               <div className="text-sm font-medium text-gray-700 w-[150px]">
                 Brand name
