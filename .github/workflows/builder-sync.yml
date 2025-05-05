@@ -1,0 +1,37 @@
+name: Builder.io Sync
+
+on:
+  repository_dispatch:
+    types: [builder_webhook]
+  schedule:
+    - cron: '0 */6 * * *'  # Runs every 6 hours
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          
+      - name: Install dependencies
+        run: npm install @builder.io/cli
+        
+      - name: Sync Builder.io content
+        run: |
+          npx @builder.io/cli export \
+            --space=${{ secrets.BUILDER_SPACE_ID }} \
+            --api-key=${{ secrets.BUILDER_API_KEY }} \
+            --output=./src/components/builder
+        env:
+          BUILDER_API_KEY: ${{ secrets.BUILDER_API_KEY }}
+          
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: 'chore: sync builder.io content'
+          title: 'Sync Builder.io content'
+          branch: builder-sync
