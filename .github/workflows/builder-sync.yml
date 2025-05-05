@@ -1,7 +1,7 @@
 name: Builder.io Sync
 
 on:
-  workflow_dispatch: {}  # Add this line to enable manual triggering
+  workflow_dispatch: {}  # Enables manual triggering
   repository_dispatch:
     types: [builder_webhook]
   schedule:
@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.TOKEN }}  # Add this line to use your token for checkout
       
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -33,6 +35,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
+          token: ${{ secrets.TOKEN }}  # Add this line to use your token for PR creation
           commit-message: 'chore: sync builder.io content'
           title: 'Sync Builder.io content'
           branch: builder-sync
