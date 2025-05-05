@@ -4,12 +4,25 @@ import RadioButton from "./shared/RadioButton.tsx";
 import Checkbox from "./shared/Checkbox.tsx";
 import InputField from "./shared/InputField.tsx";
 
-const ItemDetails = () => {
+interface ItemDetailsProps {
+  productName: string;
+  setProductName: (name: string) => void;
+  category: string;
+  setCategory: (category: string) => void;
+  brand: string;
+  setBrand: (brand: string) => void;
+}
+
+const ItemDetails: React.FC<ItemDetailsProps> = ({ 
+  productName, 
+  setProductName,
+  category,
+  setCategory,
+  brand,
+  setBrand
+}) => {
   const [itemType, setItemType] = useState("product" as "product" | "service");
   const [formData, setFormData] = useState({
-    productName: "",
-    category: "",
-    brand: "",
     sku: "",
     barcode: "",
     trackInventory: false,
@@ -27,7 +40,7 @@ const ItemDetails = () => {
   };
 
   return (
-    <section className="flex flex-col flex-1 gap-10 p-10 left-[container] max-sm:p-5">
+    <section className="flex flex-col flex-1 gap-10 p-10 w-auto max-w-[650px] max-sm:p-5">
       <div className="flex flex-col gap-4 h-auto grow-0">
         <h2 className="text-xl font-medium text-indigo-950">Item details</h2>
         <div className="flex gap-4">
@@ -49,23 +62,23 @@ const ItemDetails = () => {
 
         <InputField
           label="Product name"
-          value={formData.productName}
-          onChange={handleInputChange("productName")}
+          value={productName}
+          onChange={setProductName}
           id="productName"
         />
 
         <InputField
           label="Category"
-          value={formData.category}
-          onChange={handleInputChange("category")}
+          value={category}
+          onChange={setCategory}
           id="category"
           placeholder="Search or add a new category"
         />
 
         <InputField
           label="Brand"
-          value={formData.brand}
-          onChange={handleInputChange("brand")}
+          value={brand}
+          onChange={setBrand}
           id="brand"
         />
       </div>

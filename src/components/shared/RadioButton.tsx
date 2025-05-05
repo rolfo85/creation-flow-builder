@@ -18,6 +18,8 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   return (
     <div
       className={`flex flex-1 gap-4 items-center p-4 bg-white rounded-md border border-gray-300 border-solid ${checked ? "border-violet-500" : ""}`}
+      onClick={onChange}
+      role="presentation"
     >
       <div className="relative">
         <input
