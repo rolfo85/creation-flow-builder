@@ -1,11 +1,11 @@
 name: Builder.io Sync
 
 on:
-  workflow_dispatch: {}  # Enables manual triggering
+  workflow_dispatch: {}
   repository_dispatch:
     types: [builder_webhook]
   schedule:
-    - cron: '0 */6 * * *'  # Runs every 6 hours
+    - cron: '0 */6 * * *'
 
 jobs:
   sync:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.TOKEN }}  # Add this line to use your token for checkout
+          token: ${{ secrets.TOKEN }}
       
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -23,19 +23,23 @@ jobs:
       - name: Install dependencies
         run: npm install @builder.io/cli
         
+      - name: Clear Builder.io cache # Add this step
+        run: rm -rf ./src/components/builder/*
+        
       - name: Sync Builder.io content
         run: |
           npx @builder.io/cli export \
             --space=${{ secrets.BUILDER_SPACE_ID }} \
             --api-key=${{ secrets.BUILDER_API_KEY }} \
-            --output=./src/components/builder
+            --output=./src/components/builder \
+            --force # Add force flag to ensure fresh content
         env:
           BUILDER_API_KEY: ${{ secrets.BUILDER_API_KEY }}
           
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ secrets.TOKEN }}  # Add this line to use your token for PR creation
+          token: ${{ secrets.TOKEN }}
           commit-message: 'chore: sync builder.io content'
           title: 'Sync Builder.io content'
           branch: builder-sync
