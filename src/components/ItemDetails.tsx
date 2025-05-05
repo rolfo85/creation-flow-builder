@@ -7,13 +7,22 @@ import InputField from "./shared/InputField.tsx";
 interface ItemDetailsProps {
   productName: string;
   setProductName: (name: string) => void;
+  category: string;
+  setCategory: (category: string) => void;
+  brand: string;
+  setBrand: (brand: string) => void;
 }
 
-const ItemDetails: React.FC<ItemDetailsProps> = ({ productName, setProductName }) => {
+const ItemDetails: React.FC<ItemDetailsProps> = ({ 
+  productName, 
+  setProductName,
+  category,
+  setCategory,
+  brand,
+  setBrand
+}) => {
   const [itemType, setItemType] = useState("product" as "product" | "service");
   const [formData, setFormData] = useState({
-    category: "",
-    brand: "",
     sku: "",
     barcode: "",
     trackInventory: false,
@@ -60,16 +69,16 @@ const ItemDetails: React.FC<ItemDetailsProps> = ({ productName, setProductName }
 
         <InputField
           label="Category"
-          value={formData.category}
-          onChange={handleInputChange("category")}
+          value={category}
+          onChange={setCategory}
           id="category"
           placeholder="Search or add a new category"
         />
 
         <InputField
           label="Brand"
-          value={formData.brand}
-          onChange={handleInputChange("brand")}
+          value={brand}
+          onChange={setBrand}
           id="brand"
         />
       </div>

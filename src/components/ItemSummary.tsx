@@ -4,9 +4,11 @@ import Toggle from "./shared/Toggle.tsx";
 
 interface ItemSummaryProps {
   productName: string;
+  category: string;
+  brand: string;
 }
 
-const ItemSummary: React.FC<ItemSummaryProps> = ({ productName }) => {
+const ItemSummary: React.FC<ItemSummaryProps> = ({ productName, category, brand }) => {
   const [isAvailable, setIsAvailable] = useState(true);
 
   return (
@@ -51,7 +53,7 @@ const ItemSummary: React.FC<ItemSummaryProps> = ({ productName }) => {
                 Category
               </div>
               <div className="text-sm text-indigo-950 ml-auto text-right">
-                Dog food
+                {category}
               </div>
             </div>
             <div className="h-px bg-gray-200 w-full"></div>
@@ -60,7 +62,7 @@ const ItemSummary: React.FC<ItemSummaryProps> = ({ productName }) => {
                 Brand name
               </div>
               <div className="text-sm text-indigo-950 ml-auto text-right">
-                Premium paws
+                {brand}
               </div>
             </div>
           </div>
