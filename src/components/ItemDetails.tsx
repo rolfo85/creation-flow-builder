@@ -13,8 +13,8 @@ interface ItemDetailsProps {
   setBrand: (brand: string) => void;
 }
 
-const ItemDetails: React.FC<ItemDetailsProps> = ({ 
-  productName, 
+const ItemDetails: React.FC<ItemDetailsProps> = ({
+  productName,
   setProductName,
   category,
   setCategory,
@@ -42,7 +42,7 @@ const ItemDetails: React.FC<ItemDetailsProps> = ({
   return (
     <section className="flex flex-col flex-1 gap-10 p-10 w-auto max-w-[650px] max-sm:p-5">
       <div className="flex flex-col gap-4 h-auto grow-0">
-        <h2 className="text-xl font-medium text-indigo-950">Item details</h2>
+        <h2 className="text-xl font-medium text-indigo-950 text-right">Item details</h2>
         <div className="flex gap-4">
           <RadioButton
             checked={itemType === "product"}
