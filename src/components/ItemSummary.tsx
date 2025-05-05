@@ -21,7 +21,13 @@ const ItemSummary: React.FC<ItemSummaryProps> = ({ productName, category, brand 
           <div className="flex flex-col items-center p-6 gap-6 rounded-xl" style={{ backgroundColor: "rgba(184, 233, 134, 1)" }}>
 
             <div className="flex flex-col gap-2 items-center">
-              <div className="px-4 py-1 text-xs font-medium text-violet-600 bg-violet-100 rounded-[45px]">
+              <div
+                className="px-4 py-1 text-xs font-medium rounded-[45px]"
+                style={{
+                  backgroundColor: "rgba(134, 206, 80, 0.25)",
+                  color: "rgba(63, 128, 19, 1)"
+                }}
+              >
                 Selling price
               </div>
               <div className="text-3xl font-medium text-indigo-950">$0.00</div>
