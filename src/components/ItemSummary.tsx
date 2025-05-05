@@ -14,7 +14,7 @@ const ItemSummary: React.FC<ItemSummaryProps> = ({ productName, category, brand 
   return (
     <aside className="flex flex-col self-stretch h-auto flex-grow-0 p-10 bg-white border-l border-solid border-l-gray-300 w-[500px] max-md:w-full max-sm:p-5 max-sm:w-full">
       <div className="flex flex-col gap-6">
-        <h2 className="text-xl font-medium text-indigo-950">Item summary</h2>
+        <h2 className="text-xl font-medium text-indigo-950 text-center">Item summary</h2>
 
         <div className="flex flex-col gap-6">
 
