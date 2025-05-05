@@ -1,6 +1,7 @@
 name: Builder.io Sync
 
 on:
+  workflow_dispatch: {}  # Add this line to enable manual triggering
   repository_dispatch:
     types: [builder_webhook]
   schedule:
