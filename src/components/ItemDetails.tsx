@@ -4,10 +4,14 @@ import RadioButton from "./shared/RadioButton.tsx";
 import Checkbox from "./shared/Checkbox.tsx";
 import InputField from "./shared/InputField.tsx";
 
-const ItemDetails = () => {
+interface ItemDetailsProps {
+  productName: string;
+  setProductName: (name: string) => void;
+}
+
+const ItemDetails: React.FC<ItemDetailsProps> = ({ productName, setProductName }) => {
   const [itemType, setItemType] = useState("product" as "product" | "service");
   const [formData, setFormData] = useState({
-    productName: "",
     category: "",
     brand: "",
     sku: "",
@@ -49,8 +53,8 @@ const ItemDetails = () => {
 
         <InputField
           label="Product name"
-          value={formData.productName}
-          onChange={handleInputChange("productName")}
+          value={productName}
+          onChange={setProductName}
           id="productName"
         />
 

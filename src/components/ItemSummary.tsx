@@ -2,7 +2,11 @@
 import React, { useState } from "react";
 import Toggle from "./shared/Toggle.tsx";
 
-const ItemSummary = () => {
+interface ItemSummaryProps {
+  productName: string;
+}
+
+const ItemSummary: React.FC<ItemSummaryProps> = ({ productName }) => {
   const [isAvailable, setIsAvailable] = useState(true);
 
   return (
@@ -24,7 +28,7 @@ const ItemSummary = () => {
                 <span className="text-white font-bold">PP</span>
               </div>
               <div className="text-sm font-medium text-indigo-950">
-                Premium paw dog food
+                {productName}
               </div>
             </div>
           </div>
