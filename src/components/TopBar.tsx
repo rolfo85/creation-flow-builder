@@ -2,7 +2,7 @@ import React from "react";
 
 const TopBar: React.FC = () => {
   return (
-    <header className="flex justify-between items-center p-4 bg-white border-b border-solid border-b-gray-300 max-sm:p-3">
+    <header className="flex justify-between items-center p-4 bg-white border-b border-solid border-b-gray-300 max-sm:p-3 sticky top-0 z-50">
       <div className="flex gap-2 items-center">
         <button className="flex items-center" aria-label="Go back">
           <svg
